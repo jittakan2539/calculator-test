@@ -124,4 +124,8 @@ func main() {
 	fmt.Printf("Your Total is: %.2f THB\n", total)
 	fmt.Println("----------------------------------------")
 	fmt.Println("Thank you for using our service.")
+
+	var exitInput string
+	fmt.Println("\nType anything to quit.")
+	fmt.Scanln(&exitInput)
 }
