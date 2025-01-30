@@ -70,11 +70,37 @@ func main() {
 	}
 
 	fmt.Println("----------------------------------------")
+	fmt.Println("Please type how many sets you would like to order. (Type 0 if you don't want that set. )")
 
+	normalTotal, discountTotal, discount, afterDiscountTotal, subtotal := calculateTotal(menu, discountedItems);
+
+	fmt.Println("\nOrder Summary:")
+	fmt.Println("----------------------------------------")
+	fmt.Printf("Total price for normal sets: %.2f THB\n", normalTotal)
+	fmt.Printf("Total price for sets with (5 percent discount): %.2f THB\n", discountTotal)
+	fmt.Printf("Discount applied (5 percent): %.2f THB\n", discount)
+	fmt.Printf("Total price after discount: %.2f THB\n", afterDiscountTotal)
+	fmt.Printf("Subtotal: %.2f THB\n", subtotal)
+
+	fmt.Println("----------------------------------------")
+	
+	total := calculateMemberDiscount(subtotal);
+
+	
+	fmt.Println("----------------------------------------")
+	fmt.Printf("Your Total is: %.2f THB\n", total)
+	fmt.Println("----------------------------------------")
+	fmt.Println("Thank you for using our service.")
+
+	var exitInput string
+	fmt.Println("\nType anything to quit.")
+	fmt.Scanln(&exitInput)
+}
+
+//---------------------------------------//
+func calculateTotal(menu []foodSet, discountedItems map[string]bool) (float64, float64, float64, float64, float64) {
 	var normalQuantity []float64
 	var discountQuantity []float64
-
-	fmt.Println("Please type how many sets you would like to order. (Type 0 if you don't want that set. )")
 
 	for _, food := range menu {
 		quantity := getInteger(fmt.Sprintf("%s: ", food.Name))
@@ -102,16 +128,10 @@ func main() {
 	discount := float64(discountTotal)*0.05
 	subtotal := afterDiscountTotal + normalTotal
 
-	fmt.Println("\nOrder Summary:")
-	fmt.Println("----------------------------------------")
-	fmt.Printf("Total price for normal sets: %.2f THB\n", normalTotal)
-	fmt.Printf("Total price for sets with (5 percent discount): %.2f THB\n", discountTotal)
-	fmt.Printf("Discount applied (5 percent): %.2f THB\n", discount)
-	fmt.Printf("Total price after discount: %.2f THB\n", afterDiscountTotal)
-	fmt.Printf("Subtotal: %.2f THB\n", subtotal)
+	return normalTotal, discountTotal, discount, afterDiscountTotal, subtotal
+}
 
-	fmt.Println("----------------------------------------")
-	
+func calculateMemberDiscount(subtotal float64) float64 {
 	var total float64
 	var memberDiscount float64
 	haveMember := getYesNoInput("Do you have a member card? (y/n): ")
@@ -121,12 +141,6 @@ func main() {
 		memberDiscount = subtotal*0.1
 		fmt.Printf("10 percent member discount: %.2f THB", memberDiscount)
 	}
-	fmt.Println("----------------------------------------")
-	fmt.Printf("Your Total is: %.2f THB\n", total)
-	fmt.Println("----------------------------------------")
-	fmt.Println("Thank you for using our service.")
 
-	var exitInput string
-	fmt.Println("\nType anything to quit.")
-	fmt.Scanln(&exitInput)
+	return total
 }
