@@ -104,11 +104,11 @@ func main() {
 
 	fmt.Println("\nOrder Summary:")
 	fmt.Println("----------------------------------------")
-	fmt.Printf("Total price for normal sets:                 	%10.2f THB\n", normalTotal)
-	fmt.Printf("Total price for sets with (5 percent discount): %10.2f THB\n", discountTotal)
-	fmt.Printf("Discount applied (5 percent):                	%10.2f THB\n", discount)
-	fmt.Printf("Total price after discount:                 	%10.2f THB\n", afterDiscountTotal)
-	fmt.Printf("Subtotal:                                    	%10.2f THB\n", subtotal)
+	fmt.Printf("Total price for normal sets: %.2f THB\n", normalTotal)
+	fmt.Printf("Total price for sets with (5 percent discount): %.2f THB\n", discountTotal)
+	fmt.Printf("Discount applied (5 percent): %.2f THB\n", discount)
+	fmt.Printf("Total price after discount: %.2f THB\n", afterDiscountTotal)
+	fmt.Printf("Subtotal: %.2f THB\n", subtotal)
 
 	fmt.Println("----------------------------------------")
 	
@@ -119,7 +119,7 @@ func main() {
 	if haveMember == "y" {
 		total = subtotal*0.9
 		memberDiscount = subtotal*0.1
-		fmt.Printf("You received 10 percent discount: %.2f THB", memberDiscount)
+		fmt.Printf("10 percent member discount: %.2f THB", memberDiscount)
 	}
 	fmt.Println("----------------------------------------")
 	fmt.Printf("Your Total is: %.2f THB\n", total)
