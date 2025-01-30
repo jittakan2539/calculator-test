@@ -104,11 +104,12 @@ func main() {
 
 	fmt.Println("\nOrder Summary:")
 	fmt.Println("----------------------------------------")
-	fmt.Printf("Total price for normal sets: %.2f THB\n", normalTotal)
-	fmt.Printf("Total price for sets with (5 percent discount): %.2f THB\n", discountTotal)
-	fmt.Printf("Discount applied (5 percent): %.2f THB\n", discount)  // Adjusted this line
-	fmt.Printf("Total price after discount: %.2f THB\n", afterDiscountTotal)
-	fmt.Printf("Subtotal: %.2f THB\n", subtotal)
+	fmt.Printf("Total price for normal sets:                 	%10.2f THB\n", normalTotal)
+	fmt.Printf("Total price for sets with (5 percent discount): %10.2f THB\n", discountTotal)
+	fmt.Printf("Discount applied (5 percent):                	%10.2f THB\n", discount)
+	fmt.Printf("Total price after discount:                 	%10.2f THB\n", afterDiscountTotal)
+	fmt.Printf("Subtotal:                                    	%10.2f THB\n", subtotal)
+
 	fmt.Println("----------------------------------------")
 	
 	var total float64
