@@ -97,7 +97,6 @@ func main() {
 	fmt.Scanln(&exitInput)
 }
 
-//---------------------------------------//
 func calculateTotal(menu []foodSet, discountedItems map[string]bool) (float64, float64, float64, float64, float64) {
 	var normalQuantity []float64
 	var discountQuantity []float64
